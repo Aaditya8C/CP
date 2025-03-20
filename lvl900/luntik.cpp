@@ -38,7 +38,24 @@ typedef double ld;
 
 void solve()
 {
+    int n;
+    cin >> n;
+    vi a(n);
+    int nOne = 0, nZero = 0;
+    int count = 1;
+    for0(i, n)
+    {
+        cin >> a[i];
+        if (a[i] == 0)
+            nZero++;
+        if (a[i] == 1)
+            nOne++;
+    }
+
+    cout << (1ll << nZero) * (ll)nOne << "\n";
 }
+// 0 1
+// 0 0 1 2 3
 int main()
 {
     ios::sync_with_stdio(false);

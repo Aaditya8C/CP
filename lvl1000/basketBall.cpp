@@ -38,6 +38,31 @@ typedef double ld;
 
 void solve()
 {
+    // 10 30 40 50 60 70
+    int N, D;
+    cin >> N >> D;
+    vi a(N);
+    for0(i, N) cin >> a[i];
+    sort(all(a));
+    int l = 0, r = N - 1;
+    int wins = 0;
+    int sum = 0;
+
+    while (r >= 0)
+    {
+        sum = a[r];
+        while (sum <= D && l < r)
+        {
+            l++;
+            sum += a[r];
+        }
+        if (sum > D)
+            wins++;
+        r--;
+        sum = a[r];
+    }
+    cout << wins << "\n";
+    // // 50 60 70 80 90 100
 }
 int main()
 {
@@ -46,9 +71,9 @@ int main()
 
     cout.precision(10);
 
-    int T;
-    cin >> T;
-    while (T--)
+    // int T;
+    // cin >> T;
+    // while (T--)
     {
         solve();
     }

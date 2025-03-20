@@ -36,8 +36,34 @@ typedef vector<ll> vll;
 typedef vector<vll> vvll;
 typedef double ld;
 
-void solve()
+const string seq[] = {"00", "25", "50", "75"};
+int solve(string &s, string &elem)
 {
+
+    int sptr = s.size() - 1;
+    int res = 0;
+    while (sptr >= 0 && s[sptr] != elem[1])
+    {
+        sptr--;
+        res++;
+    }
+
+    if (sptr < 0)
+    {
+        return 1e9;
+    }
+    sptr--;
+
+    while (sptr >= 0 && s[sptr] != elem[0])
+    {
+        sptr--;
+        res++;
+    }
+
+    if (sptr < 0)
+        return 1e9;
+    else
+        return res;
 }
 int main()
 {
@@ -50,7 +76,14 @@ int main()
     cin >> T;
     while (T--)
     {
-        solve();
+        string s;
+        cin >> s;
+        int minAns = 1e9;
+        for (auto elem : seq)
+        {
+            minAns = min(minAns, solve(s, elem));
+        }
+        cout << minAns << "\n";
     }
     return 0;
 }

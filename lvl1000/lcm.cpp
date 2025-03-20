@@ -38,6 +38,18 @@ typedef double ld;
 
 void solve()
 {
+    int n;
+    cin >> n;
+    int a = 1;
+    for (int f = 2; f * f <= n; f++)
+    {
+        if (n % f == 0)
+        {
+            a = n / f;
+            break;
+        }
+    }
+    cout << a << " " << n - a << endl;
 }
 int main()
 {

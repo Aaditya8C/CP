@@ -38,7 +38,30 @@ typedef double ld;
 
 void solve()
 {
+    int n;
+    char c;
+    cin >> n >> c;
+    string s;
+    cin >> s;
+    s += s;
+    int maxTime = 0;
+    int count = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (s[i] == c)
+        {
+            count = 0;
+            while (s[i] != 'g' && i < s.size())
+            {
+                count++;
+                i++;
+            }
+            maxTime = max(maxTime, count);
+        }
+    }
+    cout << maxTime << "\n";
 }
+
 int main()
 {
     ios::sync_with_stdio(false);

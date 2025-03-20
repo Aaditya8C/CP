@@ -38,6 +38,16 @@ typedef double ld;
 
 void solve()
 {
+    int n;
+    cin >> n;
+    vi a(n);
+    int sum = 0;
+    for0(i, n)
+    {
+        cin >> a[i];
+        sum += a[i];
+    }
+    cout << sum - (n - 1) << "\n";
 }
 int main()
 {

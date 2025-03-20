@@ -38,6 +38,12 @@ typedef double ld;
 
 void solve()
 {
+    int l, r, d, u;
+    cin >> l >> r >> d >> u;
+    if (abs(l) == abs(r) && abs(r) == abs(d) && abs(d) == abs(u))
+        cout << "Yes \n";
+    else
+        cout << "No \n";
 }
 int main()
 {
