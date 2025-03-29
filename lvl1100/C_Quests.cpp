@@ -31,6 +31,7 @@ using namespace std;
 
 typedef vector<int> vi;
 typedef vector<vi> vvi;
+typedef vector<bool> vb;
 typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef long long ll;
@@ -40,6 +41,22 @@ typedef double ld;
 
 void solve()
 {
+    int n, k;
+    cin >> n >> k;
+    vi a(n), b(n);
+    for0(i, n) cin >> a[i];
+    for0(i, n) cin >> b[i];
+    int res = 0, maxQ = 0, currQ = 0;
+    int i = 0;
+
+    for0(i, min(n, k))
+    {
+
+        currQ += a[i];
+        maxQ = max(maxQ, b[i]);
+        res = max(res, currQ + (maxQ * (k - i - 1)));
+    }
+    cout << res << nl;
 }
 int main()
 {

@@ -40,6 +40,23 @@ typedef double ld;
 
 void solve()
 {
+    int n;
+    cin >> n;
+    if (n % 2 == 0)
+    {
+        cout << -1 << endl;
+    }
+    else
+    {
+        for (int i = 1; i <= n; i++)
+        {
+            int x = (2LL * (i - 1) % n) + 1;
+            cout << x;
+            if (i < n)
+                cout << sp;
+        }
+        cout << nl;
+    }
 }
 int main()
 {

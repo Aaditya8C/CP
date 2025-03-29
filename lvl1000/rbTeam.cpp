@@ -40,6 +40,15 @@ typedef double ld;
 
 void solve()
 {
+    int n, r, b;
+    cin >> n >> r >> b;
+    int exactR = r / (b + 1), extraR = r % (b + 1);
+    for (int i = 0; i < extraR; i++)
+        cout << string(exactR + 1, 'R') << 'B';
+    for (int i = extraR; i < b; i++)
+        cout << string(exactR, 'R') << 'B';
+    cout << string(exactR, 'R');
+    cout << nl;
 }
 int main()
 {

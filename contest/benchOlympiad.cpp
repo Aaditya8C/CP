@@ -40,6 +40,20 @@ typedef double ld;
 
 void solve()
 {
+
+    ll n, m, k;
+    cin >> n >> m >> k;
+    ll low = 0, high = k;
+    while (low < high)
+    {
+        ll mid = (low + high) >> 1;
+        ll maxDesk = mid * (m / (mid + 1)) + (m % (mid + 1));
+        if (n * maxDesk >= k)
+            high = mid;
+        else
+            low = mid + 1;
+    }
+    cout << low << nl;
 }
 int main()
 {

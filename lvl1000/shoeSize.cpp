@@ -12,8 +12,6 @@
 #define fi first
 #define se second
 #define sp " "
-#define nl "\n"
-
 #define all(x) (x).begin(), (x).end()  // Forward traversal
 #define rall(x) (x).rbegin, (x).rend() // reverse traversal
 
@@ -40,6 +38,40 @@ typedef double ld;
 
 void solve()
 {
+    ll n;
+    cin >> n;
+    vll s(n), p(n);
+    for0(i, n) cin >> s[i];
+    for0(i, n) p[i] = i + 1;
+
+    int i = 0;
+    while (i < n)
+    {
+        ll curSize = s[i];
+
+        // finding range for curr shoe size
+        ll l = i;
+        ll r = i;
+        while (r < n && s[r] == curSize)
+            r++;
+
+        // unique shoe size
+        if (l == r - 1)
+        {
+            cout << -1 << "\n";
+            return;
+        }
+        // rotating this grp cyclically left by 1
+        // f m     e     - first, middle, one past last elements
+        // 6 6 6 6 7 7
+        rotate(p.begin() + l, p.begin() + l + 1, p.begin() + r);
+
+        i = r;
+    }
+
+    for (auto elem : p)
+        cout << elem << sp;
+    cout << "\n";
 }
 int main()
 {

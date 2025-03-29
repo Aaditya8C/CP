@@ -40,6 +40,21 @@ typedef double ld;
 
 void solve()
 {
+    int n;
+    cin >> n;
+    string s = "";
+    cin >> s;
+    unordered_set<char> st;
+    int totalStrings = 0;
+    for0(i, n)
+    {
+        if (!st.count(s[i]))
+        {
+            totalStrings += (n - i);
+            st.insert(s[i]);
+        }
+    }
+    cout << totalStrings << nl;
 }
 int main()
 {

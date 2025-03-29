@@ -11,8 +11,6 @@
 #define pb push_back
 #define fi first
 #define se second
-#define sp " "
-#define nl "\n"
 
 #define all(x) (x).begin(), (x).end()  // Forward traversal
 #define rall(x) (x).rbegin, (x).rend() // reverse traversal
@@ -40,6 +38,37 @@ typedef double ld;
 
 void solve()
 {
+    int n, k;
+    cin >> n >> k;
+    string s;
+    cin >> s;
+    string r = s;
+    reverse(all(r));
+
+    if (s < r)
+    {
+        cout << "YES\n";
+        return;
+    }
+    else
+    {
+        set<char> st(all(s));
+        if (s == r && st.size() == 1)
+        {
+            cout << "NO\n";
+            return;
+        }
+        else if (k >= 1)
+        {
+            cout << "YES\n";
+            return;
+        }
+        else
+        {
+            cout << "NO\n";
+            return;
+        }
+    }
 }
 int main()
 {

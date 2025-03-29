@@ -40,6 +40,30 @@ typedef double ld;
 
 void solve()
 {
+    int n, x;
+    cin >> n >> x;
+    vi a(n);
+    for0(i, n) cin >> a[i];
+    sort(all(a));
+    int count = 0;
+    int curLen = 0, curStr = 0;
+    for (int i = n - 1; i >= 0; i--)
+    {
+        if (a[i] >= x)
+            count++;
+        else
+        {
+            curLen++;
+            curStr = a[i] * curLen;
+            if (curStr >= x)
+            {
+                count++;
+                curLen = 0;
+                curStr = 0;
+            }
+        }
+    }
+    cout << count << nl;
 }
 int main()
 {

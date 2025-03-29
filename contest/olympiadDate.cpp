@@ -40,6 +40,32 @@ typedef double ld;
 
 void solve()
 {
+    int n;
+    cin >> n;
+    vi a(n);
+    int zero = 0, one = 0, three = 0, five = 0, two = 0;
+    for0(i, n) cin >> a[i];
+    for0(i, n)
+    {
+        if (a[i] == 0)
+            zero++;
+        else if (a[i] == 1)
+            one++;
+        else if (a[i] == 2)
+            two++;
+        else if (a[i] == 3)
+            three++;
+        else if (a[i] == 5)
+            five++;
+
+        if (zero >= 3 && two >= 2 && one >= 1 && three >= 1 && five >= 1)
+        {
+
+            cout << i + 1 << nl;
+            return;
+        }
+    }
+    cout << 0 << nl;
 }
 int main()
 {

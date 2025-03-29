@@ -40,6 +40,15 @@ typedef double ld;
 
 void solve()
 {
+    int n, k = 0;
+    cin >> n;
+    while ((1 << (k + 1)) <= n - 1)
+        k++;
+    for (int i = (1 << k) - 1; i >= 0; i--)
+        cout << i << sp;
+    for (int i = (1 << k); i < n; i++)
+        cout << i << sp;
+    cout << nl;
 }
 int main()
 {

@@ -11,8 +11,6 @@
 #define pb push_back
 #define fi first
 #define se second
-#define sp " "
-#define nl "\n"
 
 #define all(x) (x).begin(), (x).end()  // Forward traversal
 #define rall(x) (x).rbegin, (x).rend() // reverse traversal
@@ -40,6 +38,29 @@ typedef double ld;
 
 void solve()
 {
+    int n, x;
+    cin >> n >> x;
+    vi a(n);
+    for0(i, n) cin >> a[i];
+
+    int nMin = a[0];
+    int nMax = a[0];
+
+    int res = 0;
+
+    for1(i, n)
+    {
+        if (a[i] > nMax)
+            nMax = a[i];
+        if (a[i] < nMin)
+            nMin = a[i];
+        if (nMax - nMin > 2 * x)
+        {
+            res++;
+            nMin = nMax = a[i];
+        }
+    }
+    cout << res << "\n";
 }
 int main()
 {
