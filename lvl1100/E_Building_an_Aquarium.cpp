@@ -40,6 +40,27 @@ typedef double ld;
 
 void solve()
 {
+    int n, x;
+    cin >> n >> x;
+    vll a(n);
+    rep(i, n) cin >> a[i];
+    sort(all(a));
+    ll low = 0, high = 1e10;
+    while (low < high - 1)
+    {
+        ll mid = (low + high) / 2;
+        ll i = 0, water = 0;
+        while (i < n && a[i] < mid)
+        {
+            water += mid - a[i];
+            i++;
+        }
+        if (water > x)
+            high = mid;
+        else
+            low = mid;
+    }
+    cout << low << nl;
 }
 int main()
 {

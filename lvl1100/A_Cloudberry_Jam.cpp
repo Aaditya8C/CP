@@ -40,6 +40,9 @@ typedef double ld;
 
 void solve()
 {
+    int n;
+    cin >> n;
+    cout << n * 2 << nl;
 }
 int main()
 {

@@ -38,8 +38,33 @@ typedef vector<ll> vll;
 typedef vector<vll> vvll;
 typedef double ld;
 
+int N = 150000 + 1;
 void solve()
 {
+    int n;
+    cin >> n;
+    vll a(n);
+    rep(i, n) cin >> a[i];
+    ll res = 0;
+
+    rep1(d, n)
+    {
+        if (n % d == 0)
+        {
+
+            ll mn = 1e18;
+            ll mx = -1e18;
+            for (int i = 0; i < n; i += d)
+            {
+                ll s = 0;
+                s = accumulate(a.begin() + i, a.begin() + i + d, 0ll);
+                mn = min(mn, s);
+                mx = max(mx, s);
+            }
+            res = max(res, mx - mn);
+        }
+    }
+    cout << res << nl;
 }
 int main()
 {

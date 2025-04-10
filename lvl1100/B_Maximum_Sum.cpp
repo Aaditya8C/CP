@@ -40,6 +40,20 @@ typedef double ld;
 
 void solve()
 {
+    int n, k;
+    cin >> n >> k;
+    vi a(n);
+    rep(i, n) cin >> a[i];
+    sort(all(a));
+    vll prefix(n + 1, 0);
+    rep(i, n) prefix[i + 1] = prefix[i] + a[i];
+    ll res = 0;
+
+    for (int i = 0; i <= k; i++)
+    {
+        res = max(res, prefix[n - (k - i)] - prefix[2 * i]);
+    }
+    cout << res << nl;
 }
 int main()
 {

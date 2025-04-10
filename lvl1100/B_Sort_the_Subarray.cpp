@@ -40,6 +40,23 @@ typedef double ld;
 
 void solve()
 {
+    int n;
+    cin >> n;
+    vi a(n), b(n);
+    rep(i, n) cin >> a[i];
+    rep(i, n) cin >> b[i];
+    int l = 0, r = n - 1;
+    while (l < n && a[l] == b[l])
+        l++;
+    while (r >= 0 && a[r] == b[r])
+        r--;
+
+    while (l > 0 && a[l - 1] <= b[l])
+        l--;
+    while (r < n - 1 && a[r + 1] >= b[r])
+        r++;
+
+    cout << l + 1 << sp << r + 1 << nl;
 }
 int main()
 {

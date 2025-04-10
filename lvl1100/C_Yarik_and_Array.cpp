@@ -40,7 +40,28 @@ typedef double ld;
 
 void solve()
 {
+    int n;
+    cin >> n;
+    vi a(n);
+
+    rep(i, n) cin >> a[i];
+
+    int res = a[0];
+    int mn = min(0, a[0]), sum = a[0];
+    rep1(i, n)
+    {
+        if (abs(a[i] % 2) == abs(a[i - 1] % 2))
+        {
+            mn = 0;
+            sum = 0;
+        }
+        sum += a[i];
+        res = max(res, sum - mn);
+        mn = min(mn, sum);
+    }
+    cout << res << nl;
 }
+
 int main()
 {
     ios::sync_with_stdio(false);

@@ -40,6 +40,38 @@ typedef double ld;
 
 void solve()
 {
+    ll n, k, x;
+    cin >> n >> k >> x;
+    vll a(n);
+    ll sum = 0;
+    rep(i, n)
+    {
+        cin >> a[i];
+        sum += a[i];
+    }
+    ll s = k * sum;
+    if (s < x)
+    {
+        cout << 0 << nl;
+        return;
+    }
+
+    vll prefix(n + 1, 0);
+    rep1n(i, n) prefix[i] = prefix[i - 1] + a[i - 1];
+
+    ll res = 0;
+
+    rep(i, n)
+    {
+        ll rem = k * sum - x - prefix[i];
+        if (rem < 0)
+            continue;
+        ll val = rem / sum;
+        ll valid = min((ll)k, val + 1);
+        res += valid;
+    }
+
+    cout << res << nl;
 }
 int main()
 {
